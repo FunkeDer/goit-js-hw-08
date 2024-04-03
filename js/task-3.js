@@ -1,9 +1,13 @@
-function filterArray(numbers, value){
-    const arr = [];
-    for(const el of numbers){
-        if(el > value){
-            arr.push(el)
-        }
-    }
-    return arr
-}
+const profile = {
+    username: "Jacob",
+  playTime: 300,
+  changeUsername(newName){
+    this.username = newName
+  },
+  updatePlayTime(hours){
+    this.playTime += hours
+  },
+  getInfo(){
+    return `${this.username} has ${this.playTime} active hours!`
+  },
+};
