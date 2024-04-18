@@ -1,4 +1,4 @@
-let getUserNames = user => user.map(user => user.name);
+let getUserNames = users  => users .map(users  => users.name);
 console.log(
     getUserNames([
     {
