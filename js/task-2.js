@@ -30,3 +30,5 @@ const allUsers = [
       friends: ["Goldie Gentry", "Briana Decker"]
     }
   ];
+
+  console.log(getUsersWithFriend(allUsers, "Briana Decker")); 
