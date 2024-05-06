@@ -65,31 +65,47 @@ const images = [
 ];
 
 const gallery = document.querySelector('ul.gallery')
-const fragment = document.createDocumentFragment()
 
-let image = images.map(({preview, original,  description}) => {
-  const liEl = document.createElement('li')
-  liEl.classList.add('gallery-item')
+// let image = images.map(({preview, original,  description}) => {
+//   const liEl = document.createElement('li')
+//   liEl.classList.add('gallery-item')
 
-  const linkEl = document.createElement('a')
-  linkEl.classList.add('gallery-link')
-  linkEl.href = `${original}.jpg`
-  liEl.append(linkEl)
+//   const linkEl = document.createElement('a')
+//   linkEl.classList.add('gallery-link')
+//   linkEl.href = `${original}.jpg`
+//   liEl.append(linkEl)
 
-  const imgEl = document.createElement('img')
-  imgEl.classList.add('gallery-image')
-  imgEl.src = preview
-  imgEl.alt = description
-  imgEl.dataset.source = original
+//   const imgEl = document.createElement('img')
+//   imgEl.classList.add('gallery-image')
+//   imgEl.src = preview
+//   imgEl.alt = description
+//   imgEl.dataset.source = original
 
-  linkEl.append(imgEl)
+//   linkEl.append(imgEl)
 
-  fragment.append(liEl)
-}
-)
+//   fragment.append(liEl)
+// }
+// )
 
+const markup = images.map(({preview, original,  description}) => {
+   return  `
+    <li class="gallery-item">
+      <a class="gallery-link" href="${original}">
+        <img
+          class="gallery-image"
+          src="${preview}"
+          data-source="${original}"
+          alt="${description}"
+        />
+      </a>
+    </li>
+    `
+  }
+).join("")
 
-gallery.append(fragment)
+console.log(markup);
+
+gallery.insertAdjacentHTML("beforeend", markup)
 
 gallery.addEventListener('click', (event) => {
   event.preventDefault()
