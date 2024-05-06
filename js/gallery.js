@@ -88,27 +88,6 @@ let image = images.map(({preview, original,  description}) => {
 }
 )
 
-function createmarkup({preview, original,  description}, event){
-  event.preventDefault()
-  const liEl = document.createElement('li')
-  liEl.classList.add('gallery-item')
-
-  const linkEl = document.createElement('a')
-  linkEl.classList.add('gallery-link')
-  linkEl.href = `${original}.jpg`
-  liEl.append(linkEl)
-
-  const imgEl = document.createElement('img')
-  imgEl.classList.add('gallery-image')
-  imgEl.src = preview
-  imgEl.alt = description
-  imgEl.dataset.source = original
-
-  linkEl.append(imgEl)
-
-  fragment.append(liEl)
-}
-
 
 gallery.append(fragment)
 
